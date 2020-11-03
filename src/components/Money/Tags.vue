@@ -13,9 +13,14 @@
 </template>
 
 <script lang="ts">
-export default {
-  name: 'Tags'
-};
+import Vue from 'vue';
+import {Component, Prop} from 'vue-property-decorator';
+
+@Component
+export default class Tags extends Vue {
+  @Prop(Array) tags: string[] = [];
+  selectedTags: string[] = [];
+}
 </script>
 
 <style lang="scss" scoped>
@@ -25,9 +30,11 @@ export default {
   flex-grow: 1;
   display: flex;
   flex-direction: column-reverse;
+
   > .current {
     display: flex;
     flex-wrap: wrap;
+
     > li {
       background: #d9d9d9;
       height: 24px;
@@ -38,8 +45,10 @@ export default {
       margin-top: 4px;
     }
   }
+
   > .new {
     padding-top: 16px;
+
     button {
       background: transparent;
       border: none;
