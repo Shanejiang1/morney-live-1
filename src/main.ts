@@ -15,6 +15,6 @@ Vue.component('Icon', Icon);
 
 new Vue({
   router: router,
-  store,
+  store: store,
   render: h => h(App)
 }).$mount('#app');
